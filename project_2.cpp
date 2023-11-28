@@ -3,21 +3,24 @@
 #include <cmath>
 #include <string>
 
+// Variable to store PI constant.
 float const PI = 3.14;
 
+// Function to validate input as an integer.
 bool isInteger(const std::string& input) {
 	std::istringstream iss(input);
 	int value; 
 	return iss >> value && iss.eof();
 }
 
+// Function to validate input as a double.
 bool isDouble(const std::string& input) {
 	std::istringstream iss(input);
 	double value; 
 	return iss >> value && iss.eof();
 }
 
-
+// Function that prompts the menu.
 void promptMenu(){
 
 std::cout << "Please select from the following: " << std::endl;
@@ -28,6 +31,7 @@ std::cout << "4: Quit program " << std::endl;
 std::cout << std::endl;
 }
 
+// Function that calculates the area of a circle and output name of user and area.
 void calculateCircleArea(){
     std::string name;
     double radius;
@@ -52,6 +56,7 @@ void calculateCircleArea(){
 
 }
 
+// Function that calculates tax of an item, output name and tax amount.
 void calculateTax(){
     std::string name;
     std::string itemPriceStr;
@@ -105,6 +110,7 @@ void calculateTax(){
     std::cout << std::endl;
 }
 
+// Function that converts user's weight from pounds to kilograms.
 void poundToKilogram(){
     std::string name;
     std::string userPoundsStr;
@@ -136,7 +142,7 @@ void poundToKilogram(){
     std::cout << std::endl;
 
 }
-
+// Function that terminates the program
 int terminateProgram(){
     return 0;
 }
@@ -148,6 +154,7 @@ std::string repeatProgram;
 int programChoice;
 std::string programChoiceStr;
 
+// Loops until true, validating the input of the user to the menu choices 1-4.
 do{
 promptMenu();
 
@@ -155,7 +162,7 @@ std::getline(std::cin, programChoiceStr);
         
 		if (isInteger(programChoiceStr)) {
 			programChoice = std::stoi(programChoiceStr);
-			if (programChoice >= 1 && programChoice <= 5) {
+			if (programChoice >= 1 && programChoice <= 4) {
 				break;
             }
         }
@@ -165,10 +172,12 @@ else {
 }
 
 }while(true);
+
+// Switch representing the menu for the user's selection.
     switch(programChoice){
     
         case 1:
-       calculateCircleArea();
+        calculateCircleArea();
         break;
 
         case 2:
@@ -187,7 +196,7 @@ else {
         default: std::cout << "Invalid choice, please try again." << std::endl;
     }   
 
-
+// Loop allowing the user to be prompted to repeat the program or to end.
 do{
 std::cout << "Would you like to repeat the program? " << std::endl;
 std::cout << "y or Y to continue. " << std::endl;
